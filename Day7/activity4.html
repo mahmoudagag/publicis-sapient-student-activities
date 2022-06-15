@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c1" style="border:2px solid black" width="640px" height="640px"></canvas>
+    <script>
+        const ctx = document.querySelector('#c1').getContext('2d')
+
+        const colors = ['red','orange','yellow','green','blue','indigo','violet','white']
+        for (let i = 0; i < colors.length; i++ ){
+            ctx.beginPath();
+            ctx.arc(320,350,150-(i*10),0,Math.PI,true)
+            ctx.fillStyle = colors[i]
+            ctx.fill();
+            console.log(ctx.fillStyle)
+        }
+    </script>
+
+</body>
+</html>

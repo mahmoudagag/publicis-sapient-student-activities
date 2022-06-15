@@ -1,0 +1,108 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form url="" method="POST" name="signup" onsubmit="return handleSubmit()">
+        <table>
+            <tbody>
+                <tr>
+                    <td> <label for="Firstname"> Firstname: </label></td>
+                    <td> <input name="FirstName" id="Firstname" type="text" autocomplete="off"/> </td>
+                </tr>
+                <tr>
+                    <td> <label for="LastName"> LastName: </label></td>
+                    <td> <input id="LastName" name="LastName" type="text" /> </td>
+                </tr>
+                <tr>
+                    <td> <label> Gender: </label></td>
+                    <td> 
+                        <input name="gender" type="radio" id="M" />
+                        <label for="M">Male</label> 
+                        <input name="gender" type="radio" id="F" />
+                        <label for="F">Female</label> 
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="password"> Password: </label></td>
+                    <td> <input name="password" id="password" type="password" autocomplete="off"/> </td>
+                </tr>
+                <tr>
+                    <td> <label for="ConformPassword"> Conform Password: </label></td>
+                    <td> <input id="conformPassword" name="conformPassword" type="password" /> </td>
+                </tr>
+                <tr>
+                    <td> <label> Skills: </label> </td>
+                    <td> 
+                        <input name="skills" type="checkbox" id="C" />
+                        <label  for="C">C</label> 
+                        <input name="skills" type="checkbox" id="Java" />
+                        <label  for="Java">Java</label> 
+                        <input name="skills" type="checkbox" id="C++" />
+                        <label  for="C++">C++</label> 
+                    </td>
+                </tr>
+                <tr>
+                    <td> <input type="submit" value="Register"/> </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <script>
+        const signupForm = document.signup;
+        console.log(signupForm)
+        const FirstName = signupForm.FirstName
+        const LasName = signupForm.LastName
+        const gender = signupForm.gender
+        const password = signupForm.password
+        const conformPassword = signupForm.conformPassword
+        const skills = signupForm.skills
+
+        console.log(skills)
+        function handleSubmit(){
+
+            if (FirstName.value.length <= 2){
+                alert('First name is too short')
+                return false
+            }
+            if (LastName.value.length <= 1){
+                alert('Last name is too short')
+                return false
+            }
+            let genderChecked = false
+            gender.forEach(obj => {
+                if (obj.checked){
+                    genderChecked = true
+                }
+            })
+            if (!genderChecked){
+                alert('Please select gender')
+                return false
+            }
+            if (password.value.length === 0  ){
+                alert('Please enter Password')
+                return false
+            }
+            if(password.value !== conformPassword.value){
+                alert('Passwords do not match')
+                return false
+            }
+            let skillsChecked = false
+            skills.forEach(obj => {
+                if (obj.checked){
+                    skillsChecked = true
+                }
+            })
+            if (!skillsChecked){
+                alert('Please select a skill')
+                return false
+            }        
+        }
+        
+    </script>
+
+</body>
+</html>

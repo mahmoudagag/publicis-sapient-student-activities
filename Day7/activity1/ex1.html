@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let user1 = {name : "Alexandar", age : 35}
+        document.write('<p> Name = '+ user1.name + ', Age = ' + user1.age + '</p>')
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        let user2 = new Person('Bruce', 40)
+        document.write('<p> Name = '+ user2.name + ', Age = ' + user2.age + '</p>')
+
+    </script>
+
+</body>
+</html>
